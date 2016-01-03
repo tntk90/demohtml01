@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="en" class="no-js ie ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="no-js ie ie9"><![endif]-->
+<!--[if gt IE9]><!-->
+<html lang="en" class="no-js">
+	<!--<![endif]-->
+	<head>
+		<meta charset="UTF-8">
+		<!--[if IE]<<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"><![endif]-->
+		<title>Test</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="robots" content ="index, follow">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.js"></script>
+		<script type="text/javascript" src="js/calendar.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/controller.js"></script>
+	</head>
+	<body ng-app="myApp">
+			<div class="container inner_bg">
+				<div class="row">
+					<div class="col-lg-5 left">
+						<div id="slide_weather" class="slide">
+							<div class="slide_content">
+								<div class="slide_child slide_active"><img src="img/weather-bg.png" alt="weather"></div>
+								<div class="slide_child"><img src="img/weather-bg.png" alt="weather"></div>
+								<div class="slide_child"><img src="img/weather-bg.png" alt="weather"></div>
+							</div>
+							<!-- end .slide_content -->
+							<nav class="slide_option">
+								<ul>
+								</ul>
+							</nav>
+							<!-- end .slide_option -->
+							<div class="infomation">
+								<p class="place">San Francisco, CA</p>
+								<div ng-controller="WeatherCtrl">
+									<div ng-if="loading">Loading...........</div>
+									<div ng-if="!loading">
+										<p ng-repeat="item in weatherForSelectedCity.weatherDays" class="weather">{{item.temp}} <i class="fa fa-circle-o celsius"></i></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="schedule" class="col-lg-12">
+							<div class="col-lg-1">&nbsp;</div>
+							<div class="col-lg-10">
+								<p class="date_current"><i class="fa fa-calendar"></i><span id="getCurrent"></span></p>
+								<table class="table">
+									<tr>
+										<td>08:30</td>
+										<td>Start with design project</td>
+									</tr>
+									<tr>
+										<td>10:30</td>
+										<td>Meeting with dropbox</td>
+									</tr>
+									<tr>
+										<td>12:00</td>
+										<td>Lunch with family</td>
+									</tr>
+								</table>
+							</div>
+							<div class="col-lg-1">&nbsp;</div>
+						</div>
+					</div>
+					<div class="col-lg-7">
+						<div class="col-lg-1">&nbsp;</div>
+						<div id="calendar" class="col-lg-10"></div>
+						<div class="col-lg-1">&nbsp;</div>
+					</div>
+					<a href="#" title="Add" class="add_calen"><i class="fa fa-plus"></i></a>
+				</div>
+			</div>
+			<script type="text/javascript" src="js/bootstrap.js" ></script>
+			<script type="text/javascript" src="js/jquery-ui.js"></script>
+			<script type="text/javascript" src="js/slide.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+				$('#slide_weather').slide(5000);
+			});
+			</script>
+	</body>
+</html>
